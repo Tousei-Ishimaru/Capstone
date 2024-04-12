@@ -35,6 +35,8 @@ class User(UserMixin, Document):
     adult_lname = StringField()
     adult_email = StringField()
     consent = BooleanField(default=False)
+    role = StringField()
+    age = StringField()
 
     meta = {
         'ordering': ['lname','fname']
@@ -62,6 +64,17 @@ class Blog(Document):
     create_date = DateTimeField(default=dt.datetime.utcnow)
     modify_date = DateTimeField()
 
+    meta = {
+        'ordering': ['-createdate']
+    }
+
+class Quote(Document):
+    author = ReferenceField('User',reverse_delete_rule=CASCADE)
+    create_date = DateTimeField(default=dt.datetime.utcnow)
+    modify_date = DateTimeField()
+    quote = StringField()
+    quotee = StringField()
+    caption = StringField()
     meta = {
         'ordering': ['-createdate']
     }

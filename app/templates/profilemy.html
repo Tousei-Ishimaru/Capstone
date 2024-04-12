@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% block body %}
+Role: {{current_user.role}} <br>
+Age: {{current_user.age}} <br>
 <h1 class="display-1">
     My Profile
     <a href="/myprofile/edit">

@@ -12,6 +12,8 @@ from wtforms_components import TimeField
 class ProfileForm(FlaskForm):
     fname = StringField('First Name', validators=[DataRequired()])
     lname = StringField('Last Name', validators=[DataRequired()]) 
+    role = SelectField('Role',choices=[("Teacher","Teacher"),("Student","Student")])
+    age = SelectField('Age',choices=[("1-6","1-6"),("7-12","7-12"),("12-17","12-17"),("18+","18+")])
     image = FileField("Image") 
     submit = SubmitField('Post')
 
@@ -37,6 +39,12 @@ class BlogForm(FlaskForm):
     content = TextAreaField('Blog', validators=[DataRequired()])
     tag = StringField('Tag', validators=[DataRequired()])
     submit = SubmitField('Blog')
+
+class QuoteForm(FlaskForm):
+    quote = StringField('Quote', validators=[DataRequired()])
+    quotee = StringField('Quotee', validators=[DataRequired()])
+    caption = StringField('Caption', validators=[DataRequired()])
+    submit = SubmitField('Post')
 
 class CommentForm(FlaskForm):
     content = TextAreaField('Comment', validators=[DataRequired()])
