@@ -54,11 +54,10 @@ class Sleep(Document):
         'ordering': ['sleep_date']
     }
     
-class Blog(Document):
-    author = ReferenceField('User',reverse_delete_rule=CASCADE) 
-    subject = StringField()
+class Entry(Document):
+    author = ReferenceField('User',reverse_delete_rule=CASCADE)
     content = StringField()
-    tag = StringField()
+    mood = IntField()
     create_date = DateTimeField(default=dt.datetime.utcnow)
     modify_date = DateTimeField()
 

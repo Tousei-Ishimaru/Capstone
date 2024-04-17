@@ -35,10 +35,9 @@ class SleepForm(FlaskForm):
     minstosleep = IntegerField("How many minutes did it take you to fall asleep?", validators=[NumberRange(min=0,max=180, message="Enter a number between 0 and 180.")])
     submit = SubmitField("Submit")
 
-class BlogForm(FlaskForm):
-    subject = StringField('Subject', validators=[DataRequired()])
+class EntryForm(FlaskForm):
     content = TextAreaField('Blog', validators=[DataRequired()])
-    tag = StringField('Tag', validators=[DataRequired()])
+    mood = IntegerRangeField('Entry', validators=[DataRequired()])
     submit = SubmitField('Post!')
 
 class CommentForm(FlaskForm):
